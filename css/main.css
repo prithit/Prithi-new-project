@@ -1,0 +1,166 @@
+body{
+    font-family: "Open Sans";
+    margin: 0;
+}
+
+.navbar-modified{
+    border-radius: 0;
+    margin-bottom:0;
+}
+
+.user-image{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.form-container{
+    margin: 40px 0;
+}
+
+.row-margin-0{
+    margin-left: 0;
+    margin-right: 0; 
+}
+
+.padding-15{
+    padding: 15px;
+}
+
+.sub-header{
+    background-color: #222222;
+}
+
+.text-white{
+    color: #fff;
+}
+
+.text-red{
+    color: red;
+}
+
+.btn-find{
+    background: #cf0a0a;
+    color: white;
+}
+
+.btn-find:hover{
+    color: #fff;
+}
+
+.solution-container{
+    font-size: 26px;
+}
+
+.dropdown-field{
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-field ul {
+    position: absolute;
+    visibility: hidden;
+    background: #76C3BD;
+    left: -0.5em;
+    top: 50%;
+    font-size: 80%;
+    opacity: 0;
+    -webkit-transform: translateY(-40%) scale(0.9);
+    -moz-transform: translateY(-40%) scale(0.9);
+    transform: translateY(-40%) scale(0.9);
+    -webkit-transition: visibility 0s 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: visibility 0s 0.3s, opacity 0.3s, -moz-transform 0.3s;
+    transition: visibility 0s 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.dropdown-field a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-field ul li {
+    color: #fff;
+    position: relative;
+}
+
+
+.dropdown-field ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.open ul{
+    visibility: visible;
+    opacity: 1;
+    z-index: 9999;
+}
+
+.open ul li {
+    padding: 10px 30px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: left;
+    min-width: 270px;
+}
+
+.active{
+    color: #fff !important;
+    background: #088e81;
+}
+
+.active:after{
+  font-family: 'Glyphicons Halflings';
+    content:"\e013";
+    float: right;   
+    margin-left: 2px;
+}
+
+.open ul li:hover{
+    background: #26A69A;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.solution-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #9E9E9E;
+    color: #fff;
+    margin: auto;
+}
+
+.win-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FFCA28;
+    margin: auto;
+    color: #fff;
+}
+
+
+.solution-icon i, .win-icon i{
+    font-size: 30px;
+    margin-top: 5px;
+
+}
+
+footer{
+    background-color: #000;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li{
+    margin-bottom: 20px;
+}
+
+footer ul li a{
+    color: #fff;
+}

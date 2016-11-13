@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html ng-app="NaturalLanguageApp">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Languages</title>
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+</head>
+
+<body ng-controller="NaturalLanguageCtrl as vm" ng-click="vm.removeOpenClass()" ;>
+    <nav class="navbar navbar-inverse navbar-modified">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">service<span class="text-red">now</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Wins</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Demo Center</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <img class="user-image" src="../images/user.jpg" alt="User">Cory Micek</a>
+                    </li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="text-center">
+        <header class="sub-header">
+            <div class="row row-margin-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="padding-15">
+                        <input type="text" class="form-control" placeholder="Search Solution Center...">
+                    </div>
+                    <h3 class="text-white">Welcome, <span class="text-red">Cory!</span> What would you like to accomplish today?</h3>
+                    <br>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <section class="row row-margin-0 form-container">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="solution-container">
+                        I need a
+                        <div class="dropdown-field" id="solution_id" ng-click="vm.toggleOpen('#solution_id');$event.stopPropagation();">
+                            <a class="solution-text text-red">{{vm.selectedSolutionText}}</a>
+                            <ul>
+                                <li ng-repeat="option in vm.selectText track by $index" ng-class="{'active':vm.selectedSolutionText===option}" ng-click="vm.getIndustries(option)">{{option}}</li>
+                            </ul>
+                        </div> for
+                        <div class="dropdown-field nl-dd" id="industry_id" ng-click="vm.toggleOpen('#industry_id');$event.stopPropagation();">
+                            <a class="solution-text text-red">{{vm.selectedIndustryText}}</a>
+                            <ul>
+                                <li ng-repeat="industry in vm.industries track by $index" ng-class="{'active':vm.selectedIndustryText===industry}" ng-click="vm.getProducts(industry)">{{industry}}</li>
+                            </ul>
+                        </div> and
+                        <div class="dropdown-field nl-dd" id="product_id" ng-click="vm.toggleOpen('#product_id');$event.stopPropagation();">
+                            <a class="solution-text text-red">{{vm.selectedProductText}}</a>
+                            <ul>
+                                <li ng-repeat="product in vm.products track by $index" ng-class="{'active':vm.selectedProductText===product}" ng-click="vm.setProduct(product)">{{product}}</li>
+                            </ul>
+                        </div>.
+                    </div>
+                    <div>
+                        <br>
+                        <button class="btn btn-sm btn-find">Find it!</button>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="row row-margin-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3> <strong>Search Results</strong></h3>
+                    <br>
+                    <table class="table table-bordered table-hover text-left">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Industry</th>
+                                <th>Product</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="result in vm.results">
+                                <td><a href="/{{result.name}}/"> {{result.name}} </a></td>
+                                <td><a href="/{{result.name}}/industries/{{result.industry}}"> {{result.industry}} </a></td>
+                                <td><a href="/{{result.name}}/products/{{result.product}}"> {{result.product}} </a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <hr>
+            <br>
+            <section class="row row-margin-0">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="solution-icon">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <br>
+                    <a href="">Submit a Solution</a>
+                    <br>
+                    <br>
+                    <a href="">View my Solutions</a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="win-icon">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <br>
+                    <a href="">Submit a Solution Win</a>
+                    <br>
+                    <br>
+                    <a href="">View my Solution Wins</a>
+                </div>
+
+            </section>
+        </div>
+    </section>
+    <br>
+    <br>
+    <footer>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <ul>
+                        <li> <a href=""> Solutions </a></li>
+                        <li> <a href=""> Solution Wins </a></li>
+                        <li> <a href=""> People </a></li>
+                        <li> <a href=""> Enablement </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <ul>
+                        <li> <a href=""> Standard View </a></li>
+                        <li> <a href=""> Demo Center </a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-sm-12">
+                    <ul>
+                        <li> <a href=""> Create an Incident </a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script src="../plugins/jquery/jquery-3.1.1.min.js "></script>
+    <script src="../plugins/bootstrap/js/bootstrap.min.js "></script>
+    <script src="../plugins/angular/angular.min.js "></script>
+    <script src="../js/main.js "></script>
+</body>
+
+</html>
